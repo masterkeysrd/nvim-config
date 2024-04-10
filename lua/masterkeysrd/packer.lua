@@ -29,5 +29,7 @@ return require('packer').startup(function(use)
 	}
 	use ("williamboman/mason.nvim")
 	use ("williamboman/mason-lspconfig.nvim")
+	use ('prichrd/netrw.nvim')
+	use ('nvim-tree/nvim-web-devicons')
 end)
 
