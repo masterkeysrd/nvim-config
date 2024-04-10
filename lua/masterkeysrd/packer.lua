@@ -31,5 +31,5 @@ return require('packer').startup(function(use)
 	use ("williamboman/mason-lspconfig.nvim")
 	use ('prichrd/netrw.nvim')
 	use ('nvim-tree/nvim-web-devicons')
+	use('akinsho/toggleterm.nvim')
 end)
-
