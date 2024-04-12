@@ -1,13 +1,33 @@
-local lsp_zero = require('lsp-zero')
+local lsp = require('lsp-zero')
 
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({buffer = bufnr})
+lsp.preset('recommend')
+
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
+  ensure_installed = {
+	'ast_grep',
+	'bashls',
+	'clangd',
+	'cssls',
+	'dockerls',
+	'docker_compose_language_service',
+	'eslint',
+	'gopls',
+	'tsserver',
+	'html',
+	'lua_ls',
+	'marksman',
+	'spectral',
+	'pyright',
+	'sqlls',
+	'yamlls',
+  },
   automatic_installation = true,
   handlers = {
-    lsp_zero.default_setup,
+    lsp.default_setup,
   },
 })
