@@ -26,7 +26,11 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 		}
 	}
-	use ('prichrd/netrw.nvim')
-	use ('nvim-tree/nvim-web-devicons')
 	use('akinsho/toggleterm.nvim')
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+    }
 end)

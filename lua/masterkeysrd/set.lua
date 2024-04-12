@@ -11,4 +11,8 @@ vim.opt.shiftwidth = 4 -- Number of spaces inserted when indenting
 -- scrolloff
 vim.opt.scrolloff = 10
 
+-- disable netrw at the very start of your init.lua
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
