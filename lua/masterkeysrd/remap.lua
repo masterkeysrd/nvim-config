@@ -12,7 +12,12 @@ keymap("n", "<C-S>", ":w<CR>", { noremap = true })
 keymap("x", "K", ":move -2<CR>gv=gv", opts)
 keymap("x", "J", ":move '>+<CR>gv=gv", opts)
 
+-- splits
 keymap("n", "<C-J>", "<C-W><C-J>", opts)
 keymap("n", "<C-K>", "<C-W><C-K>", opts)
 keymap("n", "<C-L>", "<C-W><C-L>", opts)
 keymap("n", "<C-H>", "<C-W><C-H>", opts)
+
+-- tabs
+keymap("n", "H", vim.cmd.bp)
+keymap("n", "L", vim.cmd.bn)
