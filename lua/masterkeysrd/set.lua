@@ -25,3 +25,6 @@ vim.opt.fileencoding = "utf-8"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- editor configs
+vim.opt.colorcolumn = "80"
+
