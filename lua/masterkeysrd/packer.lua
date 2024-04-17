@@ -43,5 +43,6 @@ return require('packer').startup(function(use)
         requires = 'nvim-tree/nvim-web-devicons'
     }
     use { 'RRethy/vim-illuminate' }
+    use { 'stevearc/conform.nvim' }
     use { 'rose-pine/neovim' }
 end)
