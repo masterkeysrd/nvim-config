@@ -1,5 +1,6 @@
 require("nvim-tree").setup({
   disable_netrw = false,
+  hijack_cursor = true,
   sort = {
     sorter = "case_sensitive",
   },
