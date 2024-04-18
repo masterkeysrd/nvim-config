@@ -46,5 +46,6 @@ return require('packer').startup(function(use)
   use { 'stevearc/conform.nvim' }
   use { 'mfussenegger/nvim-lint' }
   use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'echasnovski/mini.indentscope' }
   use { 'rose-pine/neovim' }
 end)
