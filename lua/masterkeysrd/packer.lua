@@ -47,5 +47,9 @@ return require('packer').startup(function(use)
   use { 'mfussenegger/nvim-lint' }
   use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'echasnovski/mini.indentscope' }
+  use {
+    'nvimdev/dashboard-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
   use { 'rose-pine/neovim' }
 end)

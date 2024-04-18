@@ -36,6 +36,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 250
 
 -- encoding
+vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = "utf-8"
 
 -- disable netrw at the very start of your init.lua
