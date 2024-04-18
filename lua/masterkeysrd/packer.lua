@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
     }
     use {
         'nvim-treesitter/nvim-treesitter',
-        { run = ':TSUpdate'}
+        { run = ':TSUpdate' }
     }
     use { 'tpope/vim-fugitive' }
     use { 'nvim-lualine/lualine.nvim' }
@@ -21,12 +21,12 @@ return require('packer').startup(function(use)
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-            {'neovim/nvim-lspconfig'},
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+            { 'neovim/nvim-lspconfig' },
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     }
     use {
@@ -43,5 +43,7 @@ return require('packer').startup(function(use)
         requires = 'nvim-tree/nvim-web-devicons'
     }
     use { 'RRethy/vim-illuminate' }
+    use { 'stevearc/conform.nvim' }
+    use { 'mfussenegger/nvim-lint' }
     use { 'rose-pine/neovim' }
 end)
