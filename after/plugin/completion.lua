@@ -50,9 +50,10 @@ cmp.setup({
   }
 })
 
-
--- white
-vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg = 'NONE', strikethrough = true, fg = '#FFFFFF' })
+-- light-grey
+vim.api.nvim_set_hl(0, 'CmpItemAbbr', { bg = 'NONE', strikethrough = true, fg = '#EBEBEB' })
+-- gray
+vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg = 'NONE', strikethrough = true, fg = '#808080' })
 -- blue
 vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { bg = 'NONE', fg = '#569CD6' })
 vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link = 'CmpIntemAbbrMatch' })
