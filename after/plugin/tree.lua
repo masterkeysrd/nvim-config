@@ -7,9 +7,16 @@ require("nvim-tree").setup({
   view = {
     width = 35,
   },
+  actions = {
+    change_dir = {
+      restrict_above_cwd = true,
+    }
+  },
   renderer = {
     group_empty = true,
     highlight_git = true,
+    -- I want to set the icon for the root folder
+    root_folder_label = ":t",
     icons = {
       show = {
         file = true,
