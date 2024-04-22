@@ -7,6 +7,10 @@ require('ibl').setup({
     enabled = false
   },
   exclude = {
+    buftypes = {
+      'terminal',
+      'nofile',
+    },
     filetypes = {
       "help",
       "alpha",
@@ -19,6 +23,7 @@ require('ibl').setup({
       "notify",
       "toggleterm",
       "lazyterm",
+      "NvimTree",
     },
   },
 })
