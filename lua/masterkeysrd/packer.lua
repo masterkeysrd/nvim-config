@@ -51,5 +51,6 @@ return require('packer').startup(function(use)
     'nvimdev/dashboard-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
+  use { "github/copilot.vim" }
   use { 'rose-pine/neovim' }
 end)
