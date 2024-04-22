@@ -17,6 +17,17 @@ require("nvim-tree").setup({
     highlight_git = true,
     -- I want to set the icon for the root folder
     root_folder_label = ":t",
+    indent_markers = {
+      enable = true,
+      inline_arrows = true,
+      icons = {
+        corner = "└",
+        edge = "│",
+        item = "│",
+        bottom = "─",
+        none = " ",
+      },
+    },
     icons = {
       show = {
         file = true,
