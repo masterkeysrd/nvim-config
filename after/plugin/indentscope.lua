@@ -24,6 +24,6 @@ vim.api.nvim_create_autocmd("FileType", {
     "nvim-tree",
   },
   callback = function()
-    vim.b.miniminiindentscope_disable = true
+    vim.b.miniindentscope_disable = true
   end,
 })
