@@ -52,5 +52,6 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
   use { "github/copilot.vim" }
+  use { "lewis6991/gitsigns.nvim" }
   use { 'rose-pine/neovim' }
 end)
