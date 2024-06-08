@@ -1,25 +1,22 @@
 require('conform').setup({
   formatters_by_tf = {
-    ["lua"] = { "stylue" },
-    ["go"] = { "goimports", "gofmt" },
-    ["javascriptreact"] = { "prettier" },
-    ["typescript"] = { "prettier" },
-    ["typescriptreact"] = { "prettier" },
-    ["vue"] = { "prettier" },
-    ["css"] = { "prettier" },
-    ["scss"] = { "prettier" },
-    ["less"] = { "prettier" },
-    ["html"] = { "prettier" },
-    ["json"] = { "prettier" },
-    ["jsonc"] = { "prettier" },
-    ["yaml"] = { "prettier" },
-    ["markdown"] = { "prettier" },
-    ["markdown.mdx"] = { "prettier" },
-    ["graphql"] = { "prettier" },
-    ["handlebars"] = { "prettier" },
+    lua = { 'stylua' },
+    python = { 'isort', 'black' },
+    javascript = { { 'prettierd', 'prettier' } },
+    go = { 'goimports', 'gofmt' },
+    sh = { 'shfmt' },
   },
   format_on_save = {
     timeout_ms = 500,
     lsp_fallback = true,
+  },
+  formatters = {
+    injected = {
+      options = { ignore_errors = true },
+    }
   }
 })
+
+
+require('conform').formatters.prettier = {
+}
