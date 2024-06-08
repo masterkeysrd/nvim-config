@@ -56,6 +56,7 @@ return require('packer').startup(function(use)
   use { "github/copilot.vim" }
   use { "lewis6991/gitsigns.nvim" }
   use { 'folke/trouble.nvim' }
+  use { 'folke/ts-comments.nvim' }
   use { 'echasnovski/mini.bufremove' }
   use { 'echasnovski/mini.pairs' }
   use { 'rose-pine/neovim' }
