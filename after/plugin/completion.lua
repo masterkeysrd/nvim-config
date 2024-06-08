@@ -48,7 +48,7 @@ cmp.setup({
   }, { name = 'buffer' }),
   formatting = {
     fields = { 'kind', 'abbr' },
-    format = function(entry, vim_item)
+    format = function(_, vim_item)
       vim_item.kind = cmp_kinds[vim_item.kind] or ''
       return vim_item
     end,
