@@ -57,5 +57,6 @@ return require('packer').startup(function(use)
   use { "lewis6991/gitsigns.nvim" }
   use { 'folke/trouble.nvim' }
   use { 'echasnovski/mini.bufremove' }
+  use { 'echasnovski/mini.pairs' }
   use { 'rose-pine/neovim' }
 end)
