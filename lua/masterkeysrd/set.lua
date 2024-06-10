@@ -3,6 +3,7 @@ vim.opt.guicursor = ""
 -- set line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
 -- indent
 vim.opt.tabstop = 2
@@ -46,3 +47,12 @@ vim.g.loaded_netrwPlugin = 1
 -- editor configs
 vim.opt.colorcolumn = "80"
 vim.opt.updatetime = 50
+
+-- editor folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldcolumn = "0"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
+vim.opt.foldnestmax = 3
