@@ -1,10 +1,12 @@
 require('conform').setup({
-  formatters_by_tf = {
+  formatters_by_ft = {
     lua = { 'stylua' },
     python = { 'isort', 'black' },
     javascript = { { 'prettierd', 'prettier' } },
     go = { 'goimports', 'gofmt' },
     sh = { 'shfmt' },
+    proto = { 'buf' },
+    protobuf = { 'buf' },
   },
   format_on_save = {
     timeout_ms = 500,
@@ -16,7 +18,3 @@ require('conform').setup({
     }
   }
 })
-
-
-require('conform').formatters.prettier = {
-}
