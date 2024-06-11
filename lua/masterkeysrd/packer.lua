@@ -64,5 +64,9 @@ return require('packer').startup(function(use)
   use { 'folke/ts-comments.nvim' }
   use { 'echasnovski/mini.bufremove' }
   use { 'echasnovski/mini.pairs' }
+  use {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  }
   use { 'rose-pine/neovim' }
 end)
