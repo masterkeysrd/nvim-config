@@ -43,3 +43,5 @@ require('lspconfig').lua_ls.setup({
     Lua = {}
   }
 })
+
+require('lspconfig').pbls.setup({})
