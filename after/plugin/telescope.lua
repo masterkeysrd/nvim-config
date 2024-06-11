@@ -50,7 +50,30 @@ telescope.setup({
 
 telescope.load_extension('fzf')
 
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
+vim.keymap.set('n', '<C-p>', function()
+  builtin.find_files()
+end, { silent = true, desc = 'Find files' })
+
+vim.keymap.set('n', '<leader>ps', function()
+  builtin.live_grep()
+end, { silent = true, desc = 'Live grep' })
+
+vim.keymap.set('n', '<leader>pb', function()
+  builtin.buffers()
+end, { silent = true, desc = 'Buffers' })
+
+vim.keymap.set('n', '<leader>ph', function()
+  builtin.help_tags()
+end, { silent = true, desc = 'Help tags' })
+
+vim.keymap.set('n', 'pr', function()
+  builtin.lsp_references()
+end, { silent = true, desc = 'Peek references' })
+
+vim.keymap.set('n', 'pd', function()
+  builtin.lsp_definitions()
+end, { silent = true, desc = 'Peek definitions' })
+
+vim.keymap.set('n', 'pi', function()
+  builtin.lsp_implementations()
+end, { silent = true, desc = 'Peek implementations' })
