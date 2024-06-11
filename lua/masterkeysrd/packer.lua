@@ -15,6 +15,10 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     { run = ':TSUpdate' }
   }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make'
+  }
   use { 'tpope/vim-fugitive' }
   use { 'nvim-lualine/lualine.nvim' }
   use {
