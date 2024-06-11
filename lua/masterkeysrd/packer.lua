@@ -69,5 +69,6 @@ return require('packer').startup(function(use)
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   }
+  use { 'mistricky/codesnap.nvim', run = 'make' }
   use { 'rose-pine/neovim' }
 end)
