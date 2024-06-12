@@ -45,7 +45,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- editor configs
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "99"
 vim.opt.updatetime = 50
 
 -- editor folding
