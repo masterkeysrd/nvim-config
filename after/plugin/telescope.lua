@@ -54,6 +54,10 @@ vim.keymap.set('n', '<C-p>', function()
   builtin.find_files()
 end, { silent = true, desc = 'Find files' })
 
+vim.keymap.set('n', '<leader>pf', function()
+  builtin.find_files()
+end, { silent = true, desc = 'Find files' })
+
 vim.keymap.set('n', '<leader>ps', function()
   builtin.live_grep()
 end, { silent = true, desc = 'Live grep' })
@@ -66,14 +70,14 @@ vim.keymap.set('n', '<leader>ph', function()
   builtin.help_tags()
 end, { silent = true, desc = 'Help tags' })
 
-vim.keymap.set('n', 'pr', function()
+vim.keymap.set('n', 'Pr', function()
   builtin.lsp_references()
 end, { silent = true, desc = 'Peek references' })
 
-vim.keymap.set('n', 'pd', function()
+vim.keymap.set('n', 'Pd', function()
   builtin.lsp_definitions()
 end, { silent = true, desc = 'Peek definitions' })
 
-vim.keymap.set('n', 'pi', function()
+vim.keymap.set('n', 'Pi', function()
   builtin.lsp_implementations()
 end, { silent = true, desc = 'Peek implementations' })
