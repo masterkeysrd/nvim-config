@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local map = vim.keymap.set
 
 lsp.preset('recommend')
 
@@ -6,7 +7,16 @@ lsp.on_attach(function(_, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
 end)
 
-require('mason').setup({})
+require('mason').setup({
+  ui = {
+    icons = {
+      package_pending = " ",
+      package_installed = "󰄳 ",
+      package_uninstalled = " 󰚌",
+    }
+  }
+})
+
 require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
