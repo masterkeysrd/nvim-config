@@ -1,11 +1,19 @@
-function ColorMyPencils(color)
-  color = color or "rose-pine"
-  vim.cmd.colorscheme(color)
+local ok, rose_pine = pcall(require, "rose-pine")
+
+if not ok then
+  vim.notify(
+    "rose-pine.nvim is not installed. using default colorscheme",
+    vim.log.levels.ERROR,
+    { title = 'rose-pine.nvim' }
+  )
+
+  vim.cmd.colorscheme("vim")
+  return
 end
 
-require('rose-pine').setup({
-  variant = 'moon',
-  dark_variant = 'moon',
+rose_pine.setup({
+  variant = "moon",
+  dark_variant = "moon",
   dim_inactive_windows = false,
   extend_background_behind_borders = true,
 
@@ -48,5 +56,4 @@ require('rose-pine').setup({
   }
 })
 
-vim.cmd("colorscheme rose-pine")
-ColorMyPencils()
+vim.cmd.colorscheme("rose-pine")
