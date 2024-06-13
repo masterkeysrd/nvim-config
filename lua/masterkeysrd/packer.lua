@@ -83,5 +83,6 @@ return require('packer').startup(function(use)
       "rcarriga/nvim-notify",
     }
   }
+  use { 'nvim-pack/nvim-spectre' }
   use { 'rose-pine/neovim' }
 end)
