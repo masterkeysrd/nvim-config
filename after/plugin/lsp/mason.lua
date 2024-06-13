@@ -25,7 +25,6 @@ mason_lsp.setup({
         return
       end
 
-      vim.notify("Setting up " .. server_name, vim.log.levels.INFO, notify_opts)
       lspconfig[server_name].setup({})
     end,
   }
@@ -38,15 +37,9 @@ if not found_lspconfig then
   return
 end
 
-
 lspconfig.lua_ls.setup({
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-      return
-    end
-
-    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+  settings = {
+    Lua = {
       runtime = {
         version = 'LuaJIT'
       },
@@ -55,10 +48,30 @@ lspconfig.lua_ls.setup({
         library = {
           vim.env.VIMRUNTIME
         }
+      },
+      codeLens = {
+        enable = true,
+      },
+      completion = {
+        callSnippet = 'Replace',
+      },
+      doc = {
+        privateName = { "^_" },
+      },
+      telemetry = {
+        enable = false
+      },
+      hint = {
+        enable = true,
+        setType = false,
+        paramType = true,
+        paramName = "Disable",
+        semicolon = "Disable",
+        arrayIndex = "Disable",
       }
-    })
-  end,
-  settings = {
-    Lua = {}
+
+    }
   }
 })
+
+vim.keymap.set("n", "<leader>cm", "<cmd>Mason<cr>", { noremap = true, silent = true, desc = "Mason" })
