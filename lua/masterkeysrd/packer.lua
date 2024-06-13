@@ -48,10 +48,8 @@ return require('packer').startup(function(use)
   }
   use { "github/copilot.vim" }
 
-  use { 'folke/ts-comments.nvim' }
 
   use { 'echasnovski/mini.bufremove' }
-  use { 'echasnovski/mini.pairs' }
   use { 'mistricky/codesnap.nvim', run = 'make' }
   use { 'MunifTanjim/nui.nvim' }
   use { 'rcarriga/nvim-notify' }
@@ -67,6 +65,32 @@ return require('packer').startup(function(use)
     }
   }
   use { 'rose-pine/neovim' }
+  -- Coding Plugins
+  use { 'echasnovski/mini.pairs' }
+  use { 'folke/ts-comments.nvim' }
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'hrsh7th/cmp-path' },
+      { 'petertriho/cmp-git' },
+      { 'L3MON4D3/LuaSnip' },
+    }
+  }
+
+  -- LSP Plugins
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    requires = {
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
+      { 'neovim/nvim-lspconfig' },
+      { 'hrsh7th/nvim-cmp' },
+    }
+  }
 
   -- Editor Plugins
   use { 'nvim-pack/nvim-spectre' }
