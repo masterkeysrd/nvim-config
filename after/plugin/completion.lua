@@ -1,4 +1,11 @@
-local cmp = require('cmp')
+local ok, cmp = pcall(require, 'cmp')
+
+if not ok then
+  vim.notify('nvim-cmp not found', vim.log.levels.ERROR, { title = 'cmp.nvim' })
+  return
+end
+
+local defaults = require('cmp.config.default')()
 
 local cmp_kinds = {
   Text = '',
@@ -28,13 +35,31 @@ local cmp_kinds = {
   TypeParameter = '',
 }
 
+local function confirm(fallback)
+  local opts = { behavior = cmp.ConfirmBehavior.Replace, select = true }
+
+  if cmp.core.view:visible() or vim.fn.pumvisible() == 1 then
+    if cmp.confirm(opts) then
+      return
+    end
+  end
+
+  return fallback()
+end
+
 cmp.setup({
+  autobrackts = {}, -- configure any file type to add auto brackets
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
+  },
   mapping = cmp.mapping.preset.insert({
-    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"] = confirm,
   }),
   window = {
     completion = cmp.config.window.bordered(),
@@ -53,7 +78,8 @@ cmp.setup({
       vim_item.kind = cmp_kinds[vim_item.kind] or ''
       return vim_item
     end,
-  }
+  },
+  sorting = defaults.sorting,
 })
 
 cmp.setup.cmdline({ '/', '?' }, {
@@ -91,3 +117,5 @@ vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { link = 'CmpItemKindFunction' })
 vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#D4D4D4' })
 vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
 vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
+-- ghost
+vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
