@@ -1,4 +1,9 @@
-local codesnap = require('codesnap')
+local ok, codesnap = pcall(require, 'codesnap')
+
+if not ok then
+  vim.notify('codesnap is not installed', vim.log.levels.ERROR, { title = 'codesnap.nvim' })
+  return
+end
 
 codesnap.setup({
   save_path = '~/Pictures/codesnap',
