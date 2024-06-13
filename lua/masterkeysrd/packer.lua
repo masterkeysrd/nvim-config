@@ -7,17 +7,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use { 'wbthomason/packer.nvim' }
   use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.6',
-    requires = 'nvim-lua/plenary.nvim'
-  }
-  use {
     'nvim-treesitter/nvim-treesitter',
     { run = ':TSUpdate' }
-  }
-  use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make'
   }
   use { 'tpope/vim-fugitive' }
   use { 'nvim-lualine/lualine.nvim' }
@@ -42,10 +33,6 @@ return require('packer').startup(function(use)
     config = true
   }
   use {
-    'nvim-tree/nvim-tree.lua',
-    requires = 'nvim-tree/nvim-web-devicons'
-  }
-  use {
     'akinsho/bufferline.nvim',
     tag = "*",
     requires = 'nvim-tree/nvim-web-devicons'
@@ -60,15 +47,11 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
   use { "github/copilot.vim" }
-  use { "lewis6991/gitsigns.nvim" }
-  use { 'folke/trouble.nvim' }
+
   use { 'folke/ts-comments.nvim' }
+
   use { 'echasnovski/mini.bufremove' }
   use { 'echasnovski/mini.pairs' }
-  use {
-    "folke/todo-comments.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-  }
   use { 'mistricky/codesnap.nvim', run = 'make' }
   use { 'MunifTanjim/nui.nvim' }
   use { 'rcarriga/nvim-notify' }
@@ -83,6 +66,15 @@ return require('packer').startup(function(use)
       "rcarriga/nvim-notify",
     }
   }
-  use { 'nvim-pack/nvim-spectre' }
   use { 'rose-pine/neovim' }
+
+  -- Editor Plugins
+  use { 'nvim-pack/nvim-spectre' }
+  use { "lewis6991/gitsigns.nvim" }
+  use { 'folke/trouble.nvim' }
+  use { 'folke/which-key.nvim' }
+  use { 'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons' }
+  use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.6', requires = 'nvim-lua/plenary.nvim' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 end)
