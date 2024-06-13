@@ -3,7 +3,7 @@ require('conform').setup({
     lua = { 'stylua' },
     python = { 'isort', 'black' },
     javascript = { { 'prettierd', 'prettier' } },
-    go = { 'goimports', 'gofmt' },
+    go = { 'goimports', 'gofumpt' },
     sh = { 'shfmt' },
     proto = { 'buf' },
     protobuf = { 'buf' },
