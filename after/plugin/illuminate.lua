@@ -1,5 +1,12 @@
--- default configuration
-require('illuminate').configure({
+local ok, illuminate = pcall(require, 'illuminate')
+local notify_opts = { title = 'illuminate.nvim' }
+
+if not ok then
+  vim.notify('illuminate not found', vim.log.levels.ERROR, notify_opts)
+  return
+end
+
+illuminate.configure({
   providers = {
     'lsp',
     'treesitter',
@@ -24,4 +31,31 @@ require('illuminate').configure({
   min_count_to_highlight = 1,
   should_enable = function(_) return true end,
   case_insensitive_regex = false,
+})
+
+local keymap = vim.keymap.set
+
+local function opts(desc, buffer)
+  return { noremap = true, silent = true, desc = desc, buffer = buffer }
+end
+
+keymap('n', '[[', function()
+  illuminate.goto_prev_reference(false)
+end, opts('Go to previous reference'))
+
+keymap('n', ']]', function()
+  illuminate.goto_next_reference(false)
+end, opts('Go to next reference'))
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    local buffer = vim.api.nvim_get_current_buf()
+    keymap('n', '[[', function()
+      illuminate.goto_prev_reference(false)
+    end, opts('Go to previous reference', buffer))
+
+    keymap('n', ']]', function()
+      illuminate.goto_next_reference(false)
+    end, opts('Go to next reference', buffer))
+  end,
 })
