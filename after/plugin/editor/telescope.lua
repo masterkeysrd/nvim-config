@@ -7,7 +7,6 @@ if not ok_telescope then
 end
 
 local ok_builtin, builtin = pcall(require, 'telescope.builtin')
-
 if not ok_builtin then
   vim.notify('telescope.builtin not found', vim.log.levels.ERROR, notify_opts)
   return
@@ -21,6 +20,7 @@ telescope.setup({
       "node_modules",
       "vendor"
     },
+
     vimgrep_arguments = {
       "rg",
       "--color=never",
@@ -36,6 +36,7 @@ telescope.setup({
       '!**/.git/*'
     },
   },
+
   pickers = {
     find_files = {
       find_command = {
@@ -48,7 +49,6 @@ telescope.setup({
       }
     }
   },
-
 
   extensions = {
     fzf = {
@@ -63,6 +63,7 @@ telescope.setup({
 telescope.load_extension('fzf')
 
 local map = vim.keymap.set
+
 local function opts(desc)
   return { noremap = true, silent = true, desc = desc }
 end
@@ -73,6 +74,7 @@ map('n', '<leader>pf', builtin.find_files, opts('Find files'))
 map('n', '<leader>ps', builtin.live_grep, opts('Live grep'))
 map('n', '<leader>pb', builtin.buffers, opts('Buffers'))
 map('n', '<leader>ph', builtin.help_tags, opts('Help tags'))
+map('n', '<leader>po', builtin.oldfiles, opts('Old files'))
 
 map('n', 'Pr', builtin.lsp_references, opts('Peek references'))
 map('n', 'Pd', builtin.lsp_definitions, opts('Peek definitions'))
