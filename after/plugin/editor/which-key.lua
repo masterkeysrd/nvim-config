@@ -1,5 +1,5 @@
 local ok, wk = pcall(require, "which-key")
-local notify_opts = { title = "which-key.nvim" }
+local notify_opts = { title = "Editor" }
 
 if not ok then
   vim.notify("which-key.nvim not found", vim.log.levels.ERROR, notify_opts)
@@ -31,6 +31,8 @@ wk.register({
   b = { name = "+Buffer" },
   g = { name = "+Git" },
   gh = { name = "+Git hunk" },
+  m = { name = "+Markdown" },
+  n = { name = "+Notifications" },
   p = { name = "+Project" },
 }, { prefix = "<leader>" })
 
