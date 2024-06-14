@@ -75,6 +75,7 @@ map('n', '<leader>ps', builtin.live_grep, opts('Live grep'))
 map('n', '<leader>pb', builtin.buffers, opts('Buffers'))
 map('n', '<leader>ph', builtin.help_tags, opts('Help tags'))
 map('n', '<leader>po', builtin.oldfiles, opts('Old files'))
+map('n', '<leader>ca', require('masterkeysrd.telescope.code').actions, opts('Code actions'))
 
 map('n', 'Pr', builtin.lsp_references, opts('Peek references'))
 map('n', 'Pd', builtin.lsp_definitions, opts('Peek definitions'))

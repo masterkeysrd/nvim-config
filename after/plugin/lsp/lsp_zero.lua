@@ -20,7 +20,6 @@ lsp_zero.on_attach(function(_, bufnr)
 
   -- LSP
   keymap("n", "<leader>cl", "<cmd>LspInfo<cr>", opts("Show LSP info"))
-  keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts("Show code actions"))
   keymap("n", "<leader>cr", vim.lsp.buf.rename, opts("Rename symbol"))
 end)
 
