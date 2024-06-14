@@ -1,4 +1,12 @@
-require('conform').setup({
+local ok, conform = pcall(require, 'conform')
+local notify_opts = { title = 'conform.nvim' }
+
+if not ok then
+  vim.notify('conform.nvim not found', vim.log.levels.ERROR, notify_opts)
+  return
+end
+
+conform.setup({
   formatters_by_ft = {
     lua = { 'stylua' },
     python = { 'isort', 'black' },
