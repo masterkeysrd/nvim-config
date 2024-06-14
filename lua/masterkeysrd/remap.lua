@@ -27,3 +27,15 @@ keymap("n", "<C-W>", "<C-W><C-c>", opts("Close split"))
 -- tabs
 keymap("n", "H", vim.cmd.bp, opts("Previous buffer"))
 keymap("n", "L", vim.cmd.bn, opts("Next buffer"))
+
+if vim.lsp.inlay_hint then
+  keymap("n", "<leader>ch", function()
+    local is_enabled = vim.lsp.inlay_hint.is_enabled({ 0 })
+    vim.lsp.inlay_hint.enable(true, { 0 })
+  end, opts("Show inlay hints"))
+end
+
+if vim.lsp.codelens then
+  keymap("n", "<leader>cc", vim.lsp.codelens.run, opts("Show code lens"))
+  keymap("n", "<leader>cC", vim.lsp.codelens.refresh, opts("Show code lens"))
+end
