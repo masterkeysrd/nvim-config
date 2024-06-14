@@ -24,6 +24,5 @@ require 'nvim-treesitter.configs'.setup {
     use_languagetree = true,
   },
 }
-
 vim.treesitter.language.register('xml', { 'svg', 'xslt' })
 vim.treesitter.language.register('json', { 'json.tmpl' })

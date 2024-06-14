@@ -1,4 +1,12 @@
-require("nvim-tree").setup({
+local ok, nvim_tree = pcall(require, "nvim-tree")
+local notify_opts = { title = "nvim-tree.lua" }
+
+if not ok then
+  vim.notify("nvim-tree.lua not found", vim.log.levels.ERROR, notify_opts)
+  return
+end
+
+nvim_tree.setup({
   disable_netrw = false,
   hijack_cursor = true,
   sort = {
@@ -75,6 +83,11 @@ require("nvim-tree").setup({
   }
 })
 
-vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle)
-vim.keymap.set("n", "<leader>r", vim.cmd.NvimTreeRefresh)
-vim.keymap.set("n", "<leader>n", vim.cmd.NvimTreeFindFile)
+local map = vim.keymap.set
+local function opts(desc)
+  return { noremap = true, silent = true, desc = desc }
+end
+
+map("n", "<leader>e", vim.cmd.NvimTreeToggle, opts("Toggle NvimTree"))
+map("n", "<leader>r", vim.cmd.NvimTreeRefresh, opts("Refresh NvimTree"))
+map("n", "<leader>n", vim.cmd.NvimTreeFindFile, opts("Find file in NvimTree"))
