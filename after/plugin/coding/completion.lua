@@ -1,7 +1,8 @@
 local ok, cmp = pcall(require, 'cmp')
+local notify_opts = { title = 'cmp.nvim' }
 
 if not ok then
-  vim.notify('nvim-cmp not found', vim.log.levels.ERROR, { title = 'cmp.nvim' })
+  vim.notify('nvim-cmp not found', vim.log.levels.ERROR, notify_opts)
   return
 end
 
@@ -99,23 +100,25 @@ cmp.setup.cmdline(':', {
   matching = { disallow_symbol_nonprefix_matching = false }
 })
 
+local set_highligh = vim.api.nvim_set_hl
+
 -- light-grey
-vim.api.nvim_set_hl(0, 'CmpItemAbbr', { bg = 'NONE', fg = '#EBEBEB' })
+set_highligh(0, 'CmpItemAbbr', { bg = 'NONE', fg = '#EBEBEB' })
 -- gray
-vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg = 'NONE', strikethrough = true, fg = '#808080' })
+set_highligh(0, 'CmpItemAbbrDeprecated', { bg = 'NONE', strikethrough = true, fg = '#808080' })
 -- blue
-vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { bg = 'NONE', fg = '#569CD6' })
-vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link = 'CmpIntemAbbrMatch' })
--- light blue
-vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { bg = 'NONE', fg = '#9CDCFE' })
-vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { link = 'CmpItemKindVariable' })
-vim.api.nvim_set_hl(0, 'CmpItemKindText', { link = 'CmpItemKindVariable' })
+set_highligh(0, 'CmpItemAbbrMatch', { bg = 'NONE', fg = '#569CD6' })
+set_highligh(0, 'CmpItemAbbrMatchFuzzy', { link = 'CmpIntemAbbrMatch' })
+--  ligh blue
+set_highligh(0, 'CmpItemKindVariable', { bg = 'NONE', fg = '#9CDCFE' })
+set_highligh(0, 'CmpItemKindInterface', { link = 'CmpItemKindVariable' })
+set_highligh(0, 'CmpItemKindText', { link = 'CmpItemKindVariable' })
 -- pink
-vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { bg = 'NONE', fg = '#C586C0' })
-vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { link = 'CmpItemKindFunction' })
+set_highligh(0, 'CmpItemKindFunction', { bg = 'NONE', fg = '#C586C0' })
+set_highligh(0, 'CmpItemKindMethod', { link = 'CmpItemKindFunction' })
 -- front
-vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#D4D4D4' })
-vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
-vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
+set_highligh(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#D4D4D4' })
+set_highligh(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
+set_highligh(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
 -- ghost
-vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+set_highligh(0, "CmpGhostText", { link = "Comment", default = true })

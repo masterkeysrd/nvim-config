@@ -30,7 +30,10 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 -- clipboard
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
+
+-- save
+vim.opt.confirm = true
 
 -- scrolloff
 vim.opt.scrolloff = 10
@@ -60,3 +63,21 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 3
+
+-- editor appearance
+vim.opt.virtualedit = "block"
+
+-- fill chars
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
+
+vim.opt.smoothscroll = true
+
+-- Fix markdown indentation settings
+vim.g.markdown_recommende_style = 0
