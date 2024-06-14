@@ -54,3 +54,14 @@ ts_configs.setup({
 
 vim.treesitter.language.register('xml', { 'svg', 'xslt' })
 vim.treesitter.language.register('json', { 'json.tmpl' })
+
+
+local ok_ts_autotag, ts_autotag = pcall(require, 'nvim-ts-autotag')
+
+if not ok_ts_autotag then
+  vim.notify('nvim-ts-autotag not installed', vim.log.levels.ERROR, notify_opts)
+  return
+end
+
+ts_autotag.setup({
+})
