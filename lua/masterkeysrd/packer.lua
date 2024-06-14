@@ -6,10 +6,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use { 'wbthomason/packer.nvim' }
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    { run = ':TSUpdate' }
-  }
   use { 'tpope/vim-fugitive' }
   use { 'nvim-lualine/lualine.nvim' }
   use {
@@ -38,8 +34,6 @@ return require('packer').startup(function(use)
     requires = 'nvim-tree/nvim-web-devicons'
   }
   use { 'RRethy/vim-illuminate' }
-  use { 'stevearc/conform.nvim' }
-  use { 'mfussenegger/nvim-lint' }
   use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'echasnovski/mini.indentscope' }
   use {
@@ -79,6 +73,12 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Formatting Plugins
+  use { 'stevearc/conform.nvim' }
+
+  -- Linting Plugins
+  use { 'mfussenegger/nvim-lint' }
+
   -- LSP Plugins
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -100,4 +100,14 @@ return require('packer').startup(function(use)
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.6', requires = 'nvim-lua/plenary.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+  -- Treesitter Plugins
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    { run = ':TSUpdate' }
+  }
+  use({
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    requires = "nvim-treesitter/nvim-treesitter",
+  })
 end)
