@@ -1,5 +1,5 @@
 local ok, nvim_tree = pcall(require, "nvim-tree")
-local notify_opts = { title = "nvim-tree.lua" }
+local notify_opts = { title = "Editor" }
 
 if not ok then
   vim.notify("nvim-tree.lua not found", vim.log.levels.ERROR, notify_opts)
@@ -89,5 +89,3 @@ local function opts(desc)
 end
 
 map("n", "<leader>e", vim.cmd.NvimTreeToggle, opts("Toggle NvimTree"))
-map("n", "<leader>r", vim.cmd.NvimTreeRefresh, opts("Refresh NvimTree"))
-map("n", "<leader>n", vim.cmd.NvimTreeFindFile, opts("Find file in NvimTree"))
