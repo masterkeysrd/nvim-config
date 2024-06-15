@@ -58,7 +58,10 @@ return require('packer').startup(function(use)
   use { 'akinsho/toggleterm.nvim', config = true }
   use { 'tpope/vim-fugitive' }
   use { 'RRethy/vim-illuminate' }
-
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
   -- Treesitter Plugins
   use {
     'nvim-treesitter/nvim-treesitter',
