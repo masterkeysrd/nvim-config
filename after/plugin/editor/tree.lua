@@ -6,14 +6,22 @@ if not ok then
   return
 end
 
-local function on_attach(client, bufnr)
-  local api = require("nvim-tree.api")
+local function on_attach(bufnr)
+  local found_api, api = pcall(require, "nvim-tree.api")
 
-  local function opts(desc)
-    return { noremap = true, silent = true, desc = desc, buffer = bufnr, nowait = true }
+  if not found_api then
+    vim.notify("nvim-tree.api not found", vim.log.levels.ERROR, notify_opts)
+    return
   end
 
-  vim.keymap.set("n", "?", api.tree.toggle_help, opts("Toggle help"))
+  local function opts(desc)
+    return { desc = desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+
+  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
+  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Toggle help'))
 end
 
 nvim_tree.setup({
