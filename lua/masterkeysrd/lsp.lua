@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
       'gitcommit',
       'dashboard',
       'NvimTree',
+      'packer',
     }
 
     if vim.tbl_contains(exclude_ft, vim.bo.filetype) then
