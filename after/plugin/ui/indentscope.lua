@@ -1,8 +1,15 @@
-require('mini.indentscope').setup({
-  symbol = "│",
-  options = { try_as_border = true },
-  draw = {
-    delay = 0
+local ok, indentscope = pcall(require, "mini.indentscope")
+local notify_opts = { title = "UI" }
+
+if not ok then
+  vim.notify("mini.indentscope not found", vim.log.levels.ERROR, notify_opts)
+  return
+end
+
+indentscope.setup({
+  symbol = "▏",
+  options = {
+    try_as_border = true,
   }
 })
 
