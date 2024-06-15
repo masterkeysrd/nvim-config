@@ -19,6 +19,7 @@ illuminate.configure({
     'dirbuf',
     'dirvish',
     'fugitive',
+    'help',
   },
   filetypes_allowlist = {},
   modes_denylist = {},
