@@ -11,6 +11,7 @@ if not ok then
   return
 end
 
+-- Setup rose-pine
 rose_pine.setup({
   variant = "moon",
   dark_variant = "moon",
@@ -53,6 +54,27 @@ rose_pine.setup({
     h4 = "gold",
     h5 = "pine",
     h6 = "foam",
+  },
+
+  highlight_groups = {
+    -- Auto completion
+    CmpItemAbbr = { fg = "text" },            -- completion text
+    CmpItemAbbrDeprecated = { fg = "muted" }, -- completion deprecated text
+    CmpItemAbbrMatch = { fg = "rose" },       -- completion matched text
+    CmpItemAbbrMatchFuzzy = { fg = "rose" },  -- completion fuzzy matched text
+    CmpItemKindVariable = { fg = "iris" },    -- completion variable kind
+    CmpItemKindInterface = { fg = "iris" },   -- completion interface kind
+    CmpItemKindText = { fg = "iris" },        -- completion text kind
+    CmpItemKindFunction = { fg = "rose" },    -- completion function kind
+    CmpItemKindMethod = { fg = "rose" },      -- completion method kind
+    CmpItemKindKeyword = { fg = "gold" },     -- completion keyword kind
+    CmpItemKindProperty = { fg = "gold" },    -- completion property kind
+    CmpItemKindUnit = { fg = "gold" },        -- completion unit kind
+    CmpGhostText = { fg = "muted" },          -- completion ghost text
+
+    -- LSP
+    LspCodeLens = { fg = "rose" },          -- LSP codelens
+    LspCodeLensSeparator = { fg = "rose" }, -- LSP codelens separator
   }
 })
 

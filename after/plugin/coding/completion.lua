@@ -99,26 +99,3 @@ cmp.setup.cmdline(':', {
   }),
   matching = { disallow_symbol_nonprefix_matching = false }
 })
-
-local set_highligh = vim.api.nvim_set_hl
-
--- light-grey
-set_highligh(0, 'CmpItemAbbr', { bg = 'NONE', fg = '#EBEBEB' })
--- gray
-set_highligh(0, 'CmpItemAbbrDeprecated', { bg = 'NONE', strikethrough = true, fg = '#808080' })
--- blue
-set_highligh(0, 'CmpItemAbbrMatch', { bg = 'NONE', fg = '#569CD6' })
-set_highligh(0, 'CmpItemAbbrMatchFuzzy', { link = 'CmpIntemAbbrMatch' })
---  ligh blue
-set_highligh(0, 'CmpItemKindVariable', { bg = 'NONE', fg = '#9CDCFE' })
-set_highligh(0, 'CmpItemKindInterface', { link = 'CmpItemKindVariable' })
-set_highligh(0, 'CmpItemKindText', { link = 'CmpItemKindVariable' })
--- pink
-set_highligh(0, 'CmpItemKindFunction', { bg = 'NONE', fg = '#C586C0' })
-set_highligh(0, 'CmpItemKindMethod', { link = 'CmpItemKindFunction' })
--- front
-set_highligh(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#D4D4D4' })
-set_highligh(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
-set_highligh(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
--- ghost
-set_highligh(0, "CmpGhostText", { link = "Comment", default = true })
