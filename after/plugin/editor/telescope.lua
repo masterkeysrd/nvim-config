@@ -1,5 +1,5 @@
 local ok_telescope, telescope = pcall(require, 'telescope')
-local notify_opts = { title = 'telescope.nvim' }
+local notify_opts = { title = 'Editor' }
 
 if not ok_telescope then
   vim.notify('telescope.nvim not found', vim.log.levels.ERROR, notify_opts)
