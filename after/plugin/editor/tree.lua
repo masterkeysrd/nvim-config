@@ -6,6 +6,16 @@ if not ok then
   return
 end
 
+local function on_attach(client, bufnr)
+  local api = require("nvim-tree.api")
+
+  local function opts(desc)
+    return { noremap = true, silent = true, desc = desc, buffer = bufnr, nowait = true }
+  end
+
+  vim.keymap.set("n", "?", api.tree.toggle_help, opts("Toggle help"))
+end
+
 nvim_tree.setup({
   disable_netrw = false,
   hijack_cursor = true,
@@ -80,10 +90,9 @@ nvim_tree.setup({
   },
   update_focused_file = {
     enable = true,
-  }
+  },
+  on_attach = on_attach,
 })
-
-
 
 local api = require("nvim-tree.api")
 
