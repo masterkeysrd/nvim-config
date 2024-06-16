@@ -32,6 +32,7 @@ nvim_tree.setup({
   },
   view = {
     width = 35,
+    signcolumn = "yes",
   },
   actions = {
     change_dir = {

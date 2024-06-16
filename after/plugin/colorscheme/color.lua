@@ -6,7 +6,6 @@ if not ok then
     vim.log.levels.ERROR,
     { title = 'rose-pine.nvim' }
   )
-
   vim.cmd.colorscheme("vim")
   return
 end
@@ -19,7 +18,7 @@ rose_pine.setup({
   extend_background_behind_borders = true,
 
   styles = {
-    bold = true,
+    bold = false,
     italic = false,
     transparency = false,
   },
@@ -57,6 +56,10 @@ rose_pine.setup({
   },
 
   highlight_groups = {
+    -- General
+    Normal = { fg = "text" },    -- normal text
+    Directory = { fg = "text" }, -- directory name
+
     -- Auto completion
     CmpItemAbbr = { fg = "text" },            -- completion text
     CmpItemAbbrDeprecated = { fg = "muted" }, -- completion deprecated text
@@ -71,6 +74,11 @@ rose_pine.setup({
     CmpItemKindProperty = { fg = "gold" },    -- completion property kind
     CmpItemKindUnit = { fg = "gold" },        -- completion unit kind
     CmpGhostText = { fg = "muted" },          -- completion ghost text
+
+    -- Explorer
+    NvimTreeNormal = { link = "Normal" },        -- normal text
+    NvimTreeRootFolder = { link = "Directory" }, -- root folder name
+    NvimTreeFolderName = { link = "Directory" }, -- folder name
 
     -- LSP
     LspCodeLens = { fg = "rose" },          -- LSP codelens
