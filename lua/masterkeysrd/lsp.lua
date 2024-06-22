@@ -15,6 +15,11 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
       'dashboard',
       'NvimTree',
       'packer',
+
+      -- languages
+      'sh',
+      'zsh',
+      'bash',
     }
 
     if vim.tbl_contains(exclude_ft, vim.bo.filetype) then
