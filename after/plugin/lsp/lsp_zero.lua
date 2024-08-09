@@ -151,6 +151,7 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.tsserver.setup({
+  capabilities = capabilities,
   settings = {
     javascript = {
       inlayHints              = {
