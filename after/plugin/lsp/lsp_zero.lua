@@ -150,4 +150,45 @@ lspconfig.gopls.setup({
   }
 })
 
+lspconfig.tsserver.setup({
+  settings = {
+    javascript = {
+      inlayHints              = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
+      referencesCodeLens      = {
+        enabled = true,
+        showOnAllFunctions = true,
+      },
+      implementationsCodeLens = {
+        enabled = true,
+      },
+    },
+    typescript = {
+      inlayHints              = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
+      referencesCodeLens      = {
+        enabled = true,
+        showOnAllFunctions = true,
+      },
+      implementationsCodeLens = {
+        enabled = true,
+      },
+    },
+  },
+})
+
 vim.keymap.set("n", "<leader>cm", "<cmd>Mason<cr>", { noremap = true, silent = true, desc = "Mason" })
