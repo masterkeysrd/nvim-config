@@ -48,10 +48,17 @@ local function confirm(fallback)
   return fallback()
 end
 
+local luasnip = require('luasnip')
+
 cmp.setup({
   autobrackts = {}, -- configure any file type to add auto brackets
   completion = {
     completeopt = 'menu,menuone,noinsert',
+  },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
   },
   mapping = cmp.mapping.preset.insert({
     ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -61,6 +68,20 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ["<CR>"] = confirm,
+    ["<C-l>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ["<C-h>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
   }),
   window = {
     completion = cmp.config.window.bordered(),
@@ -99,3 +120,13 @@ cmp.setup.cmdline(':', {
   }),
   matching = { disallow_symbol_nonprefix_matching = false }
 })
+
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' }
+  }, {
+    { name = 'buffer' }
+  }),
+})
+
+require('cmp_git').setup()
