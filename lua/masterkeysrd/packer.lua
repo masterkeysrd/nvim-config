@@ -44,6 +44,7 @@ return require('packer').startup(function(use)
       { 'hrsh7th/nvim-cmp' },
     }
   }
+  use { "b0o/schemastore.nvim" }
 
   -- Editor Plugins
   use { 'nvim-pack/nvim-spectre' }
