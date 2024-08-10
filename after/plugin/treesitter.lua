@@ -23,7 +23,10 @@ ts_configs.setup({
     "javascript",
     "typescript",
     "python",
-    "json"
+    "json",
+    "css",
+    "scss",
+    "styled",
   },
   sync_install = false,
   auto_install = true,
@@ -63,5 +66,4 @@ if not ok_ts_autotag then
   return
 end
 
-ts_autotag.setup({
-})
+ts_autotag.setup({})
