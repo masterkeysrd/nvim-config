@@ -12,6 +12,8 @@ lint.linters_by_ft = {
   typescript = { 'eslint' },
   go = { 'golangcilint' },
   proto = { 'buf' },
+  json = { 'jsonlint' },
+  yaml = { 'yamllint' },
 }
 
 vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {

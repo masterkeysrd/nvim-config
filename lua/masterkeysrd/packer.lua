@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
   use { 'echasnovski/mini.pairs' }
   use { 'folke/ts-comments.nvim' }
   use { "github/copilot.vim" }
+  use { 'L3MON4D3/LuaSnip', tag = 'v2.*' }
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -43,6 +44,7 @@ return require('packer').startup(function(use)
       { 'hrsh7th/nvim-cmp' },
     }
   }
+  use { "b0o/schemastore.nvim" }
 
   -- Editor Plugins
   use { 'nvim-pack/nvim-spectre' }

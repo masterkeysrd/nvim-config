@@ -81,3 +81,7 @@ vim.opt.smoothscroll = true
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommende_style = 0
+
+-- Spell check
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true

@@ -70,8 +70,10 @@ mason_lspconfig.setup({
 })
 
 local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lspconfig.lua_ls.setup({
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
@@ -109,6 +111,7 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.gopls.setup({
+  capabilities = capabilities,
   settings = {
     gopls = {
       gofumpt = true,
@@ -148,6 +151,7 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.tsserver.setup({
+  capabilities = capabilities,
   settings = {
     javascript = {
       inlayHints              = {
@@ -183,6 +187,74 @@ lspconfig.tsserver.setup({
       },
       implementationsCodeLens = {
         enabled = true,
+      },
+    },
+  },
+})
+
+lspconfig.jsonls.setup {
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+}
+
+lspconfig.yamlls.setup({
+  capabilities = capabilities,
+  settings = {
+    redhat = {
+      telemetry = {
+        enable = false
+      },
+    },
+    yaml = {
+      keyOrdering = false,
+      format = {
+        enable = true,
+      },
+      validate = true,
+      schemaStore = {
+        enable = false,
+        url = "",
+      },
+      schemas = require('schemastore').yaml.schemas(),
+      customTags = {
+        -- AWS CloudFormation
+        "!And scalar",
+        "!If scalar",
+        "!Not scalar",
+        "!Equals scalar",
+        "!Or scalar",
+        "!FindInMap sequence",
+        "!Base64 scalar",
+        "!Cidr scalar",
+        "!Ref scalar",
+        "!Sub scalar",
+        "!GetAtt scalar",
+        "!GetAZs scalar",
+        "!ImportValue scalar",
+        "!Select scalar",
+        "!Split scalar",
+        "!Join scalar",
+        "!And sequence",
+        "!If sequence",
+        "!Not sequence",
+        "!Equals sequence",
+        "!Or sequence",
+        "!FindInMap sequence",
+        "!Base64 sequence",
+        "!Cidr sequence",
+        "!Ref sequence",
+        "!Sub sequence",
+        "!GetAtt sequence",
+        "!GetAZs sequence",
+        "!ImportValue sequence",
+        "!Select sequence",
+        "!Split sequence",
+        "!Join sequence",
       },
     },
   },
