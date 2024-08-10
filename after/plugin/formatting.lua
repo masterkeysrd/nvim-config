@@ -10,11 +10,13 @@ conform.setup({
   formatters_by_ft = {
     lua = { 'stylua' },
     python = { 'isort', 'black' },
-    javascript = { { 'prettierd', 'prettier' } },
+    javascript = { 'prettierd', 'prettier', stop_after_first = true },
     go = { 'goimports', 'gofumpt' },
     sh = { 'shfmt' },
     proto = { 'buf' },
     protobuf = { 'buf' },
+    json = { 'jq', 'prettierd', 'prettier', stop_after_first = true },
+    yaml = { 'prettierd', 'prettier', stop_after_first = true },
   },
   format_on_save = {
     timeout_ms = 500,
