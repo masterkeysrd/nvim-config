@@ -13,9 +13,16 @@ toggleterm.setup({
   shading_factor = 2,
   start_in_insert = true,
   insert_mappings = true,
-  persist_size = true,
+  persist_size = false,
   close_on_exit = true,
   shell = vim.o.shell,
+  direction = 'horizontal',
+  winbar = {
+    enabled = false,
+    name_formatter = function(term) --  term: Terminal
+      return term.name
+    end
+  },
 })
 
 function _G.set_terminal_keymaps()
