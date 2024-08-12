@@ -11,6 +11,7 @@ ts_configs.setup({
   ensure_installed = {
     "c",
     "lua",
+    "luadoc",
     "vim",
     "vimdoc",
     "query",
@@ -27,6 +28,7 @@ ts_configs.setup({
     "css",
     "scss",
     "styled",
+    "markdown",
   },
   sync_install = false,
   auto_install = true,
