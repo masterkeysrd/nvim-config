@@ -21,7 +21,11 @@ keymap("n", "<C-J>", "<C-W><C-J>", opts("Move to split below"))
 keymap("n", "<C-K>", "<C-W><C-K>", opts("Move to split above"))
 keymap("n", "<C-L>", "<C-W><C-L>", opts("Move to split right"))
 keymap("n", "<C-H>", "<C-W><C-H>", opts("Move to split left"))
-keymap("n", "<C-W>", "<C-W><C-c>", opts("Close split"))
+keymap("n", "<C-=>", "<C-W>=", opts("Balance splits"))
+keymap("n", "<C-S-l>", "<C-W>2<", opts("Decrease split width"))
+keymap("n", "<C-S-h>", "<C-W>2>", opts("Increase split width"))
+keymap("n", "<C-S-j>", "<C-W>2-", opts("Decrease split height"))
+keymap("n", "<C-S-k>", "<C-W>2+", opts("Increase split height"))
 
 
 -- tabs
