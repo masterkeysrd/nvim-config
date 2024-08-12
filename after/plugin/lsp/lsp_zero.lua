@@ -46,6 +46,17 @@ lsp_zero.set_sign_icons({
   info = "",
 })
 
+vim.diagnostic.config({
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+})
+
 local found_mason, mason = pcall(require, "mason")
 
 if not found_mason then
@@ -63,14 +74,20 @@ if not found_mason_lspconfig then
 end
 
 mason_lspconfig.setup({
-  ensure_installed = {},
+  ensure_installed = { "lua_ls" },
   handlers = {
     lsp_zero.default_setup,
   }
 })
 
 local lspconfig = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local cpm_lsp = require("cmp_nvim_lsp")
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  {},
+  vim.lsp.protocol.make_client_capabilities(),
+  cpm_lsp.default_capabilities()
+)
 
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
