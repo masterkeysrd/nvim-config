@@ -64,6 +64,10 @@ return require('packer').startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+  use {
+    "vinnymeller/swagger-preview.nvim",
+    run = "npm install -g swagger-ui-watcher",
+  }
   -- Treesitter Plugins
   use {
     'nvim-treesitter/nvim-treesitter',
