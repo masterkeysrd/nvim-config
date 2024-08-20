@@ -7,7 +7,6 @@ if not ok then
 end
 
 ts_configs.setup({
-  indent = { enable = true },
   ensure_installed = {
     "c",
     "lua",
