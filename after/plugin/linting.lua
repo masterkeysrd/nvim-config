@@ -11,7 +11,7 @@ lint.linters_by_ft = {
   javascript = { 'eslint' },
   typescript = { 'eslint' },
   go = { 'golangcilint' },
-  proto = { 'buf' },
+  proto = { 'protolint' },
   json = { 'jsonlint' },
   yaml = { 'yamllint' },
 }
