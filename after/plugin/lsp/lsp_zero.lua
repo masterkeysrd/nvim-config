@@ -277,4 +277,6 @@ lspconfig.yamlls.setup({
   },
 })
 
+lspconfig.bufls.setup({})
+
 vim.keymap.set("n", "<leader>cm", "<cmd>Mason<cr>", { noremap = true, silent = true, desc = "Mason" })
