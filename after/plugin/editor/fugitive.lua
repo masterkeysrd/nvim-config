@@ -1,40 +1,12 @@
-function FugitiveToggle()
-  if FugitiveCloseCurrentTab() then
-    return
+local function toggle()
+  local buf = vim.api.nvim_get_current_buf()
+  local name = vim.api.nvim_buf_get_name(buf)
+
+  if name:find("fugitive://") then
+    vim.api.nvim_command("bd")
+  else
+    vim.api.nvim_command("G | only")
   end
-
-  FugitiveCloseCurrentTab()
-  FugitiveOpen()
-end
-
-function FugitiveCloseCurrentTab()
-  local tab = vim.api.nvim_get_current_tabpage()
-  local is_current, ok = pcall(vim.api.nvim_tabpage_get_var, tab, "is_fugitive")
-
-  if ok and is_current then
-    vim.api.nvim_command("tabclose")
-    return true
-  end
-
-  return false
-end
-
-function FugitiveCloseAllTabs()
-  local tab_list = vim.api.nvim_list_tabpages()
-
-  for _, tab in ipairs(tab_list) do
-    local result, ok = pcall(vim.api.nvim_tabpage_get_var, tab, "is_fugitive")
-
-    if ok and result then
-      vim.api.nvim_set_current_tabpage(tab)
-      vim.api.nvim_command("tabclose")
-    end
-  end
-end
-
-function FugitiveOpen()
-  vim.api.nvim_command("tab Git")
-  vim.api.nvim_tabpage_set_var(0, "is_fugitive", true)
 end
 
 local function opts(desc)
@@ -51,7 +23,7 @@ local function confirm(msg, cmd)
   end
 end
 
-vim.keymap.set("n", "<leader>gs", FugitiveToggle, opts("Toggle Git tab"))
+vim.keymap.set("n", "<leader>gs", toggle, opts("Toggle git status"))
 vim.keymap.set("n", "<leader>gc", "<cmd>G commit<CR>", opts("Commit changes"))
 
 vim.keymap.set("n", "<leader>gps", confirm("Push changes?", "G push"), opts("Push changes"))
