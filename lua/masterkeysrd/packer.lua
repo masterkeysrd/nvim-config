@@ -88,6 +88,19 @@ return require('packer').startup(function(use)
   }
   use { 'jay-babu/mason-nvim-dap.nvim', requires = 'williamboman/mason.nvim' }
 
+  -- Testing Plugins
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      -- adapters
+      "nvim-neotest/neotest-go",
+    }
+  }
+
   -- Treesitter Plugins
   use {
     'nvim-treesitter/nvim-treesitter',
