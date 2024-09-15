@@ -10,6 +10,7 @@ lint.linters_by_ft = {
   markdown = { 'markdownlint' },
   javascript = { 'eslint' },
   typescript = { 'eslint' },
+  typescriptreact = { 'eslint' },
   go = { 'golangcilint' },
   proto = { 'protolint' },
   json = { 'jsonlint' },
