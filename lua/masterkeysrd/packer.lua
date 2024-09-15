@@ -68,6 +68,26 @@ return require('packer').startup(function(use)
     "vinnymeller/swagger-preview.nvim",
     run = "npm install -g swagger-ui-watcher",
   }
+
+  -- Debugging Plugins
+  use {
+    'mfussenegger/nvim-dap',
+    requires = {
+      { 'rcarriga/nvim-dap-ui' },
+      { 'theHamsta/nvim-dap-virtual-text' },
+      -- adapters
+      { 'leoluz/nvim-dap-go' }
+    }
+  }
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio"
+    },
+  }
+  use { 'jay-babu/mason-nvim-dap.nvim', requires = 'williamboman/mason.nvim' }
+
   -- Treesitter Plugins
   use {
     'nvim-treesitter/nvim-treesitter',
