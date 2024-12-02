@@ -127,6 +127,8 @@ lspconfig.lua_ls.setup({
   }
 })
 
+lspconfig.buf_ls.setup({})
+
 lspconfig.gopls.setup({
   capabilities = capabilities,
   settings = {
@@ -276,7 +278,5 @@ lspconfig.yamlls.setup({
     },
   },
 })
-
-lspconfig.bufls.setup({})
 
 vim.keymap.set("n", "<leader>cm", "<cmd>Mason<cr>", { noremap = true, silent = true, desc = "Mason" })
