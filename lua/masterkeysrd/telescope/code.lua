@@ -8,7 +8,7 @@ local conf = require("telescope.config").values
 
 local notify_opts = { title = "Code Actions" }
 
-local code = {}
+local M = {}
 
 local function get_code_actions()
   local bufnr = vim.api.nvim_get_current_buf()
@@ -44,7 +44,7 @@ local function get_code_actions()
   return results
 end
 
-code.actions = function(opts)
+function M.actions(opts)
   opts = opts or themes.get_dropdown()
 
   local results = get_code_actions()
@@ -83,4 +83,4 @@ code.actions = function(opts)
   }):find()
 end
 
-return code
+return M
