@@ -7,7 +7,7 @@ local directions = {
   l = "R",
 }
 
-M.setup = function(config)
+function M.setup(config)
   -- check if tmux is installed
   if vim.fn.executable("tmux") == 0 then
     return
@@ -32,20 +32,37 @@ local function navigate_vim_split(direction)
 end
 
 local function navigate_pane(direction)
-  return function()
-    if not navigate_vim_split(direction) then
-      vim.fn.system("tmux select-pane -" .. directions[direction])
-    end
+  if not navigate_vim_split(direction) then
+    vim.fn.system("tmux select-pane -" .. directions[direction])
   end
 end
 
-M.navigate = function(direction)
-  return navigate_pane(direction)
+-- Navigate to the specified direction
+-- @param direction string: The direction to navigate to
+function M.navigate(direction)
+  return function()
+    navigate_pane(direction)
+  end
 end
 
-M.left = navigate_pane("h")
-M.down = navigate_pane("j")
-M.up = navigate_pane("k")
-M.right = navigate_pane("l")
+-- Navigate to the left pane
+function M.left()
+  navigate_pane("h")
+end
+
+-- Navigate to the down pane
+function M.down()
+  navigate_pane("j")
+end
+
+-- Navigate to the up pane
+function M.up()
+  navigate_pane("k")
+end
+
+-- Navigate to the right pane
+function M.right()
+  navigate_pane("l")
+end
 
 return M
