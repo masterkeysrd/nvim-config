@@ -33,6 +33,7 @@ neotest.setup({
     open_on_run = true,
   },
   quickfix = {
+    enable = true,
     open = function()
       local trouble_ok, trouble = pcall(require, "trouble")
 
