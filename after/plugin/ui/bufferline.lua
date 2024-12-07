@@ -6,6 +6,11 @@ if not ok then
   return
 end
 
+local exclude_ft = {
+  'qf',
+  'fugitive'
+}
+
 local function close_buffer(n)
   local found, bufrem = pcall(require, "mini.bufremove")
 
@@ -25,19 +30,27 @@ bufferline.setup({
     diagnostics = "nvim_lsp",
     close_command = close_buffer,
     always_show_bufferline = false,
+    indicator = {
+      icon = "▎",
+      style = 'icon',
+    },
     offsets = {
       {
         filetype = "NvimTree",
         text = "File Explorer",
         separator = true,
-        highlight = "Directory",
         text_align = "left",
       },
     },
     style_preset = {
       bufferline.style_preset.no_italic,
       bufferline.style_preset.no_bold,
-    }
+    },
+    custom_filter = function(buf)
+      if not vim.tbl_contains(exclude_ft, vim.bo[buf].filetype) then
+        return true
+      end
+    end,
   },
 })
 
