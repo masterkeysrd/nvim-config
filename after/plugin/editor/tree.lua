@@ -22,6 +22,8 @@ local function on_attach(bufnr)
 
   vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Toggle help'))
+  vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
+  vim.keymap.set('n', '<C-W>', api.tree.close, opts('Close'))
 end
 
 nvim_tree.setup({
