@@ -7,6 +7,7 @@ if not ok then
 end
 
 lint.linters_by_ft = {
+  make = { 'checkmake' },
   markdown = { 'markdownlint' },
   javascript = { 'eslint' },
   typescript = { 'eslint' },
