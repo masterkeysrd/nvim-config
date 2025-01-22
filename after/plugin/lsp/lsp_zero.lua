@@ -89,6 +89,15 @@ local capabilities = vim.tbl_deep_extend(
   cpm_lsp.default_capabilities()
 )
 
+lspconfig.bashls.setup({
+  capabilities = capabilities,
+  settings = {
+    bash = {
+      filetypes = { "bash", "sh", "zsh" },
+    },
+  },
+})
+
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   settings = {
